@@ -5,7 +5,39 @@
 // - A getter and setter for the title, with the setter allowing changes only if the new title is not empty.
 
 class Book {
-  // YOUR CODE HERE
+  #title
+  #author
+  #price
+
+  constructor(title, author, price){
+    this.#title = title
+    this.#author = author
+    this.#price = price
+  }
+
+  get title(){
+    return this.#title
+  }
+
+  get author(){
+    return this.#author
+  }
+
+  get price(){
+    return this.#price
+  }
+
+  set title(newTitle){
+    if(newTitle.trim() !== ''){
+      this.#title = newTitle
+    }
+  }
+
+  addDiscount(discount){
+    if(discount >= 0 && discount <= 100){
+      this.#price =  this.#price - (this.#price * discount/100)
+    }
+  }
 }
 
 
